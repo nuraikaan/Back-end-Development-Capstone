@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<h1>Band Website</h1><p>IBM Back-End Application Development Capstone.</p>{% for c in concerts %}<p>{{c.name}} — {{c.city}} — {{c.date}}</p>{% empty %}<p>No concerts.</p>{% endfor %}{% endblock %}

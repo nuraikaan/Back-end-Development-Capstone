@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: songs}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: songs}}
+  template:
+    metadata: {labels: {app: songs}}
+    spec:
+      containers:
+      - name: songs
+        image: YOUR_REGISTRY/songs:latest
+        ports: [{containerPort: 5002}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: songs}
+spec:
+  selector: {app: songs}
+  ports: [{port: 5002, targetPort: 5002}]

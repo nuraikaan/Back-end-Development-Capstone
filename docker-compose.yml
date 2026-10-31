@@ -1,0 +1,11 @@
+services:
+  pictures:
+    build: ../Back-End-Development-Pictures
+    ports: ["5001:5001"]
+  songs:
+    build: ../Back-End-Development-Songs
+    ports: ["5002:5002"]
+  django:
+    build: .
+    ports: ["8000:8000"]
+    depends_on: [pictures,songs]

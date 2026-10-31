@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<h1>Songs</h1>{% for s in songs %}<article><h3>{{s.title}}</h3><p>{{s.artist}} — {{s.album}}</p><details><summary>Lyrics</summary>{{s.lyrics}}</details></article>{% empty %}<p>No songs.</p>{% endfor %}{% endblock %}

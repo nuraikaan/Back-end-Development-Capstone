@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: pictures}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: pictures}}
+  template:
+    metadata: {labels: {app: pictures}}
+    spec:
+      containers:
+      - name: pictures
+        image: YOUR_REGISTRY/pictures:latest
+        ports: [{containerPort: 5001}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: pictures}
+spec:
+  selector: {app: pictures}
+  ports: [{port: 5001, targetPort: 5001}]

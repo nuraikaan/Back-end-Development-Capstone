@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<h1>Photos</h1>{% for p in photos %}<article><h3>{{p.title|default:'Picture'}}</h3><p>{{p.event_city}}</p>{% if p.pic_url %}<img src="{{p.pic_url}}" alt="Picture">{% endif %}{% if p.url %}<img src="{{p.url}}" alt="{{p.title}}">{% endif %}</article>{% empty %}<p>No photos.</p>{% endfor %}{% endblock %}
